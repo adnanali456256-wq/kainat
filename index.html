@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kainat Javed | Performance Marketing Specialist</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- CSS VARIABLES & GLOBAL RESET --- */
+        :root {
+            --primary: #b13942;
+            --primary-dark: #8a2a31;
+            --brown-bar: #6E2B2F;
+            --dark-section: #1a0a0b;
+            --text-main: #1a1a1a;
+            --text-muted: #666666;
+            --bg-light: #fdfdfd;
+            --white: #ffffff;
+            --font-head: 'Poppins', sans-serif;
+            --font-body: 'Roboto', sans-serif;
+            --font-script: 'Great Vibes', cursive;
+            --shadow-sm: 0 4px 6px rgba(0,0,0,0.05);
+            --shadow-md: 0 10px 30px rgba(0,0,0,0.08);
+            --shadow-lg: 0 20px 40px rgba(0,0,0,0.12);
+            --shadow-hover: 0 15px 40px rgba(177, 57, 66, 0.15);
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+        section[id] { scroll-margin-top: 100px; }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-main);
+            background-color: var(--white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-head); font-weight: 700; line-height: 1.2; }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        ul { list-style: none; }
+
+        .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+        .section-padding { padding: 80px 0; }
+        .text-center { text-align: center; }
+
+        /* --- ANNOUNCEMENT BAR --- */
+        .announcement-bar {
+            background-color: var(--brown-bar);
+            color: var(--white);
+            padding: 12px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            font-family: var(--font-head);
+            font-weight: 500;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 1001;
+        }
+
+        .announcement-marquee {
+            display: flex;
+            animation: scroll-announcement 25s linear infinite;
+        }
+
+        .announcement-marquee:hover { animation-play-state: paused; }
+
+        @keyframes scroll-announcement {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .announcement-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            padding-right: 40px;
+        }
+
+        .announcement-content span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .announcement-content .divider { opacity: 0.5; }
+
+        .social-svg {
+            fill: var(--white);
+            width: 18px;
+            height: 18px;
+            transition: var(--transition);
+        }
+
+        .social-svg:hover { fill: #ddd; transform: scale(1.1); }
+
+        /* --- HEADER & LOGO --- */
+        header { background-color: var(--white); box-shadow: var(--shadow-sm); position: sticky; top: 0; z-index: 1000; }
+
+        .nav-container {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo-text {
+            font-family: var(--font-head);
+            font-size: 38px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-self: start;
+            line-height: 1;
+        }
+
+        .logo-text .k { color: #1a1a1a; }
+        .logo-text .j { color: var(--primary); }
+
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-family: var(--font-head);
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--text-main);
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after { width: 100%; }
+
+        .header-btn { justify-self: end; }
+        .menu-toggle { display: none; font-size: 26px; cursor: pointer; color: var(--primary); justify-self: end; }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 16px 36px; font-family: var(--font-head); font-weight: 600;
+            font-size: 15px; text-transform: uppercase; letter-spacing: 1px;
+            border-radius: 6px; cursor: pointer; border: none; transition: var(--transition);
+        }
+        .btn-primary { background-color: var(--primary); color: var(--white); box-shadow: 0 4px 15px rgba(177, 57, 66, 0.3); }
+        .btn-primary:hover { background-color: var(--primary-dark); transform: translateY(-3px); box-shadow: 0 8px 25px rgba(177, 57, 66, 0.5); }
+        .btn-outline { background-color: transparent; border: 2px solid var(--primary); color: var(--primary); }
+        .btn-outline:hover { background-color: var(--primary); color: var(--white); }
+
+        /* --- HERO SECTION --- */
+        .hero { padding: 100px 0 80px; background: linear-gradient(135deg, #ffffff 0%, #fdf5f5 100%); position: relative; z-index: 1; }
+        .hero .container { display: flex; align-items: center; justify-content: space-between; gap: 60px; }
+        .hero-content { flex: 1.1; min-width: 0; }
+        .hero-script { font-family: var(--font-script); font-size: 80px; color: var(--primary); display: block; margin-bottom: -35px; line-height: 1; }
+        .hero-title { font-size: 76px; font-weight: 800; line-height: 1.1; margin-bottom: 24px; color: var(--text-main); letter-spacing: -1.5px; }
+        .hero-title span { color: var(--primary); }
+        .hero-subtitle { font-size: 20px; color: var(--text-muted); margin-bottom: 40px; max-width: 550px; }
+        .hero-image { flex: 1; display: flex; justify-content: flex-end; align-items: center; min-width: 0; }
+        .hero-image img {
+            width: 100%;
+            max-width: 520px;
+            height: auto;
+            border-radius: 16px;
+            display: block;
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* --- VALUE PILLARS --- */
+        .pillars { padding: 0 0 80px; margin-top: -50px; position: relative; z-index: 10; }
+        .pillars-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+        .pillar-card { background-color: var(--primary); color: var(--white); padding: 50px 25px; text-align: center; border-radius: 10px; box-shadow: var(--shadow-md); transition: var(--transition); }
+        .pillar-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); background-color: var(--primary-dark); }
+        .pillar-card i { font-size: 48px; margin-bottom: 20px; }
+        .pillar-card h3 { font-size: 16px; color: var(--white); text-transform: uppercase; letter-spacing: 1.5px; }
+
+        /* --- ABOUT SECTION --- */
+        .about { background-color: var(--bg-light); padding: 80px 0; position: relative; z-index: 2; }
+        .about .container { display: flex; align-items: center; gap: 70px; }
+        .about-image { flex: 0 0 auto; display: flex; justify-content: center; align-items: center; }
+        .about-content { flex: 1 1 auto; min-width: 0; }
+
+        .honeycomb { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .hex-row { display: flex; gap: 15px; margin-top: -45px; }
+        .hex-row:first-child { margin-top: 0; }
+
+        .hex-item { width: 160px; height: 180px; position: relative; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.15)); transition: transform 0.3s ease; }
+        .hex-item:hover { transform: translateY(-10px) scale(1.05); z-index: 10; }
+
+        .hex-inner { width: 100%; height: 100%; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center; padding: 20px; background-size: cover; background-position: center; position: relative; overflow: hidden; background-color: #333; }
+        .hex-inner::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.85) 100%); z-index: 1; transition: var(--transition); }
+        .hex-item:hover .hex-inner::before { background: linear-gradient(180deg, rgba(177, 57, 66, 0.5) 0%, rgba(177, 57, 66, 0.95) 100%); }
+
+        .hex-inner i, .hex-inner span { position: relative; z-index: 2; }
+        .hex-inner i { font-size: 32px; margin-bottom: 10px; color: var(--primary); }
+        .hex-inner span { font-family: var(--font-head); font-weight: 700; font-size: 14px; text-transform: uppercase; line-height: 1.2; letter-spacing: 0.5px; }
+
+        .center-logo .hex-inner { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); }
+        .center-logo .hex-inner::before { display: none; }
+        .center-logo .hex-inner span { font-size: 48px; font-weight: 800; letter-spacing: 2px; color: white; }
+
+        .section-tag { color: var(--primary); font-family: var(--font-head); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 14px; display: block; margin-bottom: 15px; }
+        .section-title { font-size: 44px; margin-bottom: 25px; font-weight: 800; }
+        .about-content p { margin-bottom: 20px; color: var(--text-muted); font-size: 16px; }
+
+        /* --- SERVICES --- */
+        .services { background-color: var(--white); position: relative; z-index: 3; }
+        .services-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 50px; }
+        .service-card { background-color: var(--white); border: 1px solid #eaeaea; border-radius: 12px; padding: 45px 35px; transition: var(--transition); display: flex; flex-direction: column; box-shadow: var(--shadow-sm); }
+        .service-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-8px); border-color: var(--primary); }
+        .service-card.dark { background-color: var(--primary); border-color: var(--primary); color: var(--white); }
+        .service-card.dark h3, .service-card.dark p { color: var(--white); }
+        .service-card.dark i { color: var(--white); }
+        .service-card i { font-size: 40px; color: var(--primary); margin-bottom: 25px; }
+        .service-card h3 { font-size: 22px; margin-bottom: 16px; }
+        .service-card p { font-size: 15px; color: var(--text-muted); flex-grow: 1; }
+
+        /* --- TRUSTED CLIENTS MARQUEE --- */
+        .clients-section { background-color: var(--primary-dark); color: var(--white); padding: 80px 0; overflow: hidden; position: relative; z-index: 4; }
+        .clients-section .section-title { color: var(--white); margin-bottom: 50px; }
+
+        .clients-marquee { display: flex; overflow: hidden; user-select: none; padding: 20px 0; }
+
+        .clients-track {
+            display: flex;
+            gap: 60px;
+            padding-right: 60px;
+            animation: scroll-clients 50s linear infinite;
+            align-items: center;
+            flex-shrink: 0;
+            will-change: transform;
+        }
+        .clients-track:hover { animation-play-state: paused; }
+
+        @keyframes scroll-clients {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .client-logo {
+            font-family: var(--font-head);
+            font-size: 24px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.9);
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+            flex-shrink: 0;
+        }
+
+        .client-logo i { font-size: 28px; color: var(--primary); }
+
+        /* --- MILESTONES (COUNTER) --- */
+        .milestones {
+            background-color: var(--dark-section);
+            color: var(--white);
+            padding: 90px 0;
+            position: relative;
+            z-index: 5;
+        }
+        .milestones .section-title { color: var(--white); margin-bottom: 0; }
+
+        .milestones-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 48px 24px;
+            margin-top: 60px;
+            text-align: center;
+            align-items: start;
+        }
+
+        .milestone-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-width: 0;
+        }
+
+        .milestone-value {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 2px;
+            font-family: var(--font-head);
+            font-weight: 800;
+            font-size: clamp(2.25rem, 4vw, 3.5rem);
+            line-height: 1;
+            color: var(--white);
+            white-space: nowrap;
+            margin-bottom: 16px;
+        }
+        .milestone-value .suffix { color: var(--primary); }
+
+        .milestone-item p {
+            font-size: 13px;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin: 0;
+            max-width: 200px;
+        }
+
+        /* --- PORTFOLIO SLIDER --- */
+        .portfolio { background-color: var(--bg-light); overflow: hidden; position: relative; z-index: 6; padding: 80px 0; }
+
+        .marquee-container {
+            display: flex;
+            overflow: hidden;
+            user-select: none;
+            margin-top: 50px;
+            padding: 20px 0;
+            width: 100%;
+        }
+
+        .marquee-content {
+            display: flex;
+            gap: 28px;
+            padding-right: 28px;
+            animation: scroll 45s linear infinite;
+            flex-shrink: 0;
+            will-change: transform;
+        }
+        .marquee-content:hover { animation-play-state: paused; }
+
+        @keyframes scroll {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .portfolio-item {
+            background-color: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            flex: 0 0 350px;
+            width: 350px;
+        }
+        .portfolio-item:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: var(--transition);
+        }
+        .portfolio-item:hover img { transform: scale(1.05); }
+
+        /* --- GOOGLE REVIEWS --- */
+        .testimonials { background-color: #f5f5f8; border-top: 1px solid #e9e9ee; overflow: hidden; position: relative; z-index: 7; padding: 80px 0; }
+        .google-header { text-align: center; margin-bottom: 40px; }
+        .google-logo { font-family: 'Product Sans', sans-serif; font-size: 32px; font-weight: 700; letter-spacing: -1px; margin-bottom: 10px; }
+        .google-logo span:nth-child(1) { color: #4285F4; }
+        .google-logo span:nth-child(2) { color: #DB4437; }
+        .google-logo span:nth-child(3) { color: #F4B400; }
+        .google-logo span:nth-child(4) { color: #4285F4; }
+        .google-logo span:nth-child(5) { color: #0F9D58; }
+        .google-logo span:nth-child(6) { color: #DB4437; }
+        .google-stars { color: #F4B400; font-size: 20px; margin-bottom: 10px; }
+        .google-header p { font-size: 14px; color: var(--text-muted); }
+
+        .reviews-marquee {
+            display: flex;
+            overflow: hidden;
+            user-select: none;
+            margin-top: 20px;
+            padding: 20px 0;
+            width: 100%;
+        }
+
+        .reviews-track {
+            display: flex;
+            gap: 28px;
+            padding-right: 28px;
+            animation: scroll-reviews 40s linear infinite;
+            flex-shrink: 0;
+            will-change: transform;
+        }
+        .reviews-track:hover { animation-play-state: paused; }
+
+        @keyframes scroll-reviews {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .review-card {
+            background-color: var(--white);
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            flex: 0 0 400px;
+            width: 400px;
+        }
+
+        .review-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .review-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; }
+        .reviewer-info { display: flex; align-items: center; gap: 12px; }
+        .reviewer-avatar { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 18px; font-family: var(--font-head); flex-shrink: 0; }
+        .avatar-red { background-color: #EA4335; }
+        .avatar-blue { background-color: #4285F4; }
+        .avatar-green { background-color: #34A853; }
+        .reviewer-details h4 { font-size: 15px; margin-bottom: 2px; font-weight: 600; }
+        .reviewer-details span { font-size: 13px; color: var(--text-muted); }
+        .review-google-icon { font-size: 18px; }
+        .review-stars { display: flex; align-items: center; gap: 5px; margin-bottom: 12px; }
+        .review-stars i { color: #F4B400; font-size: 14px; }
+        .review-stars .verified { color: #4285F4; font-size: 14px; margin-left: 5px; }
+        .review-text { font-size: 15px; color: var(--text-main); line-height: 1.6; flex-grow: 1; }
+        .review-text .read-more { color: #4285F4; font-weight: 500; cursor: pointer; font-size: 14px; }
+        .review-text .read-more:hover { text-decoration: underline; }
+
+        /* --- CTA SECTION --- */
+        .cta-section { background-color: var(--primary); color: var(--white); text-align: center; padding: 80px 0; position: relative; z-index: 8; }
+        .cta-section .section-title { color: var(--white); font-size: 52px; margin-bottom: 20px; }
+        .cta-section p { font-size: 18px; color: rgba(255,255,255,0.9); margin-bottom: 35px; }
+        .cta-section .btn { background-color: var(--white); color: var(--primary); }
+        .cta-section .btn:hover { background-color: #f0f0f0; transform: translateY(-3px); }
+
+        /* --- FAQ / WHY ME --- */
+        .faq { background-color: var(--bg-light); position: relative; z-index: 9; }
+        .faq-list { max-width: 900px; margin: 50px auto 0; }
+        details { background-color: var(--primary); color: var(--white); margin-bottom: 16px; border-radius: 8px; overflow: hidden; box-shadow: var(--shadow-sm); }
+        summary { padding: 24px 30px; font-family: var(--font-head); font-weight: 600; font-size: 18px; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+        summary::-webkit-details-marker { display: none; }
+        summary::after { content: '\f105'; font-family: 'Font Awesome 6 Free'; font-weight: 900; transition: transform 0.3s ease; font-size: 22px; }
+        details[open] summary::after { transform: rotate(90deg); }
+        .faq-content { padding: 0 30px 24px; color: rgba(255,255,255,0.9); background-color: var(--primary-dark); }
+
+        /* --- FOOTER --- */
+        footer { background-color: #111111; color: #aaaaaa; padding: 80px 0 30px; position: relative; z-index: 10; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 50px; margin-bottom: 60px; }
+        .footer-col h4 { color: var(--white); font-size: 18px; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-col p { margin-bottom: 20px; }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col ul li a:hover { color: var(--primary); padding-left: 5px; }
+
+        .footer-social a {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 40px; height: 40px; background-color: #222; color: var(--white);
+            border-radius: 50%; margin-right: 12px; margin-top: 10px; font-size: 16px;
+            transition: var(--transition);
+        }
+        .footer-social a:hover { background-color: var(--primary); transform: translateY(-3px); }
+
+        .footer-contact-item { display: flex; align-items: flex-start; margin-bottom: 18px; }
+        .footer-contact-item i { color: var(--primary); margin-right: 15px; margin-top: 5px; }
+        .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid #222; font-size: 14px; }
+
+        .footer-logo { font-family: var(--font-head); font-size: 32px; font-weight: 800; letter-spacing: -1px; display: flex; align-items: center; gap: 5px; margin-bottom: 20px; }
+        .footer-logo .k { color: #fff; }
+        .footer-logo .j { color: var(--primary); }
+
+        /* --- WHATSAPP FLOAT (right) --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: var(--white);
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            font-size: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        .whatsapp-float:hover { transform: scale(1.1) translateY(-5px); color: var(--white); box-shadow: 0 15px 35px rgba(37, 211, 102, 0.6); }
+
+        /* --- SCROLL TO TOP BUTTON (left) — perfectly mirrored with WhatsApp --- */
+        .scroll-top {
+            position: fixed;
+            bottom: 40px;              /* SAME as WhatsApp */
+            left: 40px;                /* SAME offset as WhatsApp's right */
+            background-color: var(--primary);
+            color: var(--white);
+            width: 65px;               /* SAME size as WhatsApp */
+            height: 65px;              /* SAME size as WhatsApp */
+            border-radius: 50%;        /* round like WhatsApp */
+            font-size: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(177, 57, 66, 0.4);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .scroll-top.active { opacity: 1; visibility: visible; }
+        .scroll-top:hover { background-color: var(--primary-dark); transform: scale(1.1) translateY(-5px); box-shadow: 0 15px 35px rgba(177, 57, 66, 0.6); }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 1024px) {
+            .hero-title { font-size: 56px; }
+            .about .container { gap: 40px; }
+            .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .pillars-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .milestones-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 20px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .header-btn { display: none; }
+            .hex-item { width: 130px; height: 150px; }
+            .hex-row { margin-top: -38px; }
+            .hex-inner i { font-size: 26px; }
+            .hex-inner span { font-size: 12px; }
+            .center-logo .hex-inner span { font-size: 36px; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container { grid-template-columns: 1fr auto; }
+            .logo-text { font-size: 30px; }
+
+            .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--white); padding: 30px; box-shadow: 0 15px 30px rgba(0,0,0,0.1); gap: 20px; }
+            .nav-links.active { display: flex; }
+            .menu-toggle { display: block; }
+
+            .hero .container { flex-direction: column; text-align: center; }
+            .hero-content { display: flex; flex-direction: column; align-items: center; }
+            .hero-script { font-size: 60px; margin-bottom: -20px; }
+            .hero-title { font-size: 42px; }
+            .hero-subtitle { margin: 0 auto 30px; }
+            .hero-image { justify-content: center; }
+            .hero-image img { max-width: 340px; }
+
+            .pillars-grid { grid-template-columns: 1fr; }
+            .pillars { margin-top: 0; padding: 40px 0; }
+            .about .container { flex-direction: column; gap: 40px; }
+            .services-grid,
+            .milestones-grid { grid-template-columns: 1fr; }
+            .milestones-grid { gap: 36px 16px; margin-top: 40px; }
+            .milestone-value { font-size: 2.25rem; }
+            .milestone-item p { font-size: 12px; letter-spacing: 1px; }
+
+            .footer-grid { grid-template-columns: 1fr; }
+
+            /* Floating buttons — mirrored perfectly on mobile too */
+            .whatsapp-float { width: 55px; height: 55px; font-size: 26px; bottom: 20px; right: 20px; }
+            .scroll-top     { width: 55px; height: 55px; font-size: 22px; bottom: 20px; left: 20px; }
+
+            .hex-item { width: 100px; height: 115px; }
+            .hex-row { margin-top: -30px; gap: 10px; }
+            .hex-inner { padding: 10px; }
+            .hex-inner i { font-size: 20px; margin-bottom: 5px; }
+            .hex-inner span { font-size: 9px; }
+            .center-logo .hex-inner span { font-size: 28px; }
+            .announcement-bar { font-size: 12px; padding: 8px 0; }
+
+            .section-padding,
+            .about,
+            .milestones,
+            .clients-section,
+            .cta-section,
+            .portfolio,
+            .testimonials { padding-top: 60px; padding-bottom: 60px; }
+
+            .section-title { font-size: 30px; }
+            .cta-section .section-title { font-size: 32px; }
+
+            .marquee-container,
+            .reviews-marquee,
+            .clients-marquee { padding: 12px 0; }
+
+            .review-card { flex: 0 0 300px; width: 300px; }
+            .portfolio-item { flex: 0 0 280px; width: 280px; }
+
+            .marquee-content,
+            .reviews-track { gap: 20px; padding-right: 20px; }
+            .clients-track { gap: 40px; padding-right: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ANNOUNCEMENT BAR -->
+    <div class="announcement-bar">
+        <div class="announcement-marquee">
+            <div class="announcement-content">
+                <span>🚀 Let's scale your business with data-driven Meta & Google Ads!</span>
+                <span class="divider">|</span>
+                <span>📞 Book a free consultation: 0341 5307998</span>
+                <span class="divider">|</span>
+                <span>📈 10M+ Ad Spend Managed</span>
+                <span class="divider">|</span>
+                <a href="https://www.facebook.com/profile.php?id=61594487743785" target="_blank"><svg class="social-svg" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg></a>
+                <a href="https://www.instagram.com/kdigital_by_kainat/" target="_blank"><svg class="social-svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                <a href="https://www.tiktok.com/@kdigital_by_kainat" target="_blank"><svg class="social-svg" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93v7.37c0 1.5-.37 3.02-1.15 4.32-1.14 1.94-3.23 3.17-5.45 3.18-2.23.02-4.38-1.17-5.52-3.1-1.14-1.94-1.14-4.37.01-6.31 1.15-1.93 3.34-3.11 5.57-3.08.32 0 .64.02.96.06V14.7c-.33-.08-.67-.12-1.01-.11-1.58.02-3.02.94-3.72 2.34-.69 1.39-.52 3.08.43 4.32.94 1.24 2.52 1.73 4.03 1.27 1.5-.46 2.47-1.83 2.47-3.4V.02h-3.55z"/></svg></a>
+                <a href="https://www.linkedin.com/in/kainat-javed-946b9a3b0" target="_blank"><svg class="social-svg" viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg></a>
+            </div>
+            <div class="announcement-content" aria-hidden="true">
+                <span>🚀 Let's scale your business with data-driven Meta & Google Ads!</span>
+                <span class="divider">|</span>
+                <span>📞 Book a free consultation: 0341 5307998</span>
+                <span class="divider">|</span>
+                <span>📈 10M+ Ad Spend Managed</span>
+                <span class="divider">|</span>
+                <a href="https://www.facebook.com/profile.php?id=61594487743785" target="_blank"><svg class="social-svg" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg></a>
+                <a href="https://www.instagram.com/kdigital_by_kainat/" target="_blank"><svg class="social-svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                <a href="https://www.tiktok.com/@kdigital_by_kainat" target="_blank"><svg class="social-svg" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93v7.37c0 1.5-.37 3.02-1.15 4.32-1.14 1.94-3.23 3.17-5.45 3.18-2.23.02-4.38-1.17-5.52-3.1-1.14-1.94-1.14-4.37.01-6.31 1.15-1.93 3.34-3.11 5.57-3.08.32 0 .64.02.96.06V14.7c-.33-.08-.67-.12-1.01-.11-1.58.02-3.02.94-3.72 2.34-.69 1.39-.52 3.08.43 4.32.94 1.24 2.52 1.73 4.03 1.27 1.5-.46 2.47-1.83 2.47-3.4V.02h-3.55z"/></svg></a>
+                <a href="https://www.linkedin.com/in/kainat-javed-946b9a3b0" target="_blank"><svg class="social-svg" viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo-text">
+                <span class="k">K</span>
+                <span class="j">J</span>
+            </div>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <a href="#contact" class="btn btn-primary header-btn">Get Consultation</a>
+
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-script">Hi</span>
+                <h1 class="hero-title">I'm <span>KAINAT</span><br>JAVED</h1>
+                <p class="hero-subtitle">Performance Marketer, Helping brands grow through Meta Ads, Google Ads, and data-driven strategies.</p>
+                <a href="#portfolio" class="btn btn-primary">See My Work</a>
+            </div>
+            <div class="hero-image">
+                <img src="http://earnwithaadi.com/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-27-at-7.46.13-PM.jpeg"
+                     alt="Kainat Javed"
+                     onerror="this.src='https://via.placeholder.com/600x600/b13942/ffffff?text=Kainat+Javed'">
+            </div>
+        </div>
+    </section>
+
+    <!-- VALUE PILLARS -->
+    <section class="pillars">
+        <div class="container">
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <i class="fas fa-chess"></i>
+                    <h3>Strategic Planning</h3>
+                </div>
+                <div class="pillar-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Unique Ideas</h3>
+                </div>
+                <div class="pillar-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Revenue Focused</h3>
+                </div>
+                <div class="pillar-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 Support</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-image">
+                <div class="honeycomb">
+                    <div class="hex-row">
+                        <div class="hex-item">
+                            <div class="hex-inner" style="background-image: url('http://earnwithaadi.com/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-27-at-7.46.14-PM.jpeg');">
+                                <i class="fab fa-facebook-f"></i>
+                                <span>META ADS</span>
+                            </div>
+                        </div>
+                        <div class="hex-item">
+                            <div class="hex-inner" style="background-image: url('http://earnwithaadi.com/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-27-at-7.46.14-PM-1.jpeg');">
+                                <i class="fab fa-google"></i>
+                                <span>GOOGLE ADS</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hex-row">
+                        <div class="hex-item">
+                            <div class="hex-inner" style="background-image: url('http://earnwithaadi.com/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-27-at-7.46.14-PM-2.jpeg');">
+                                <i class="fas fa-search-dollar"></i>
+                                <span>META ADS<br>AUDIT</span>
+                            </div>
+                        </div>
+                        <div class="hex-item center-logo">
+                            <div class="hex-inner">
+                                <span>KJ</span>
+                            </div>
+                        </div>
+                        <div class="hex-item">
+                            <div class="hex-inner" style="background-image: url('http://earnwithaadi.com/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-27-at-7.46.15-PM.jpeg');">
+                                <i class="fas fa-chart-pie"></i>
+                                <span>CRO</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hex-row">
+                        <div class="hex-item">
+                            <div class="hex-inner" style="background-image: url('http://earnwithaadi.com/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-27-at-7.46.15-PM-1.jpeg');">
+                                <i class="fas fa-store"></i>
+                                <span>SHOPIFY<br>STORE AUDIT</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-content">
+                <span class="section-tag">// Performance Marketing</span>
+                <h2 class="section-title">MARKETING THAT EARNS YOUR TRUST</h2>
+                <p>I'm Kainat Javed, a Performance Marketing Specialist with 5+ years of experience helping E-commerce, Real Estate, Food & Beverage, and Service-based businesses grow through Meta Ads, Google Ads, AI-powered marketing strategies, and conversion optimization.</p>
+                <p>As a Creative Strategist and Shopify CRO Expert, I specialize in lead generation, revenue growth, Meta Ads Account Audits, Shopify Store Audits, and website optimization.</p>
+                <p>My focus is simple: turning marketing campaigns into measurable business results through data-driven decisions, creative execution, and continuous optimization.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services section-padding" id="services">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-tag">// What I Do!</span>
+                <h2 class="section-title">MORE THAN JUST RUNNING ADS</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card dark">
+                    <i class="fab fa-facebook-f"></i>
+                    <h3>Meta Ads</h3>
+                    <p>Reach the right audience, generate qualified leads, and increase sales through strategically planned Facebook and Instagram advertising campaigns.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fab fa-google"></i>
+                    <h3>Google Ads</h3>
+                    <p>Connect with people actively searching for your products or services through optimized Google Search, Display, and YouTube campaigns.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fab fa-tiktok"></i>
+                    <h3>TikTok Ads</h3>
+                    <p>Build brand awareness, drive conversions, and connect with new customers using creative, performance-focused TikTok advertising strategies.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Lead Generation</h3>
+                    <p>Generate high-quality leads through data-driven campaigns designed to attract, engage, and convert the right audience into potential customers.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-share-alt"></i>
+                    <h3>Social Media Management</h3>
+                    <p>Build a strong online presence with strategic content, audience engagement, and consistent brand communication across social media platforms.</p>
+                </div>
+                <div class="service-card dark">
+                    <i class="fas fa-search-dollar"></i>
+                    <h3>Ad Account Audit</h3>
+                    <p>Uncover hidden opportunities, eliminate wasted ad spend, and identify performance gaps through a detailed audit of your advertising accounts.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h3>Ecommerce Marketing</h3>
+                    <p>Scale your online store with performance-driven advertising strategies focused on increasing sales, customer acquisition, and return on investment.</p>
+                </div>
+                <div class="service-card dark">
+                    <i class="fas fa-store"></i>
+                    <h3>Shopify Store Audit</h3>
+                    <p>Analyze your Shopify store from a customer's perspective to identify issues affecting conversions, user experience, and overall store performance.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-chart-pie"></i>
+                    <h3>Website CRO</h3>
+                    <p>Turn more visitors into customers by improving user experience, optimizing sales funnels, and removing conversion barriers throughout the customer journey.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUSTED CLIENTS MARQUEE SECTION -->
+    <section class="clients-section">
+        <div class="container text-center">
+            <span class="section-tag" style="color: #fff;">// Trusted clients</span>
+            <h2 class="section-title">MARKETING THAT ACTUALLY WORKS</h2>
+        </div>
+        <div class="clients-marquee">
+            <div class="clients-track">
+                <div class="client-logo"><i class="fas fa-birthday-cake"></i> Amal Desserts</div>
+                <div class="client-logo"><i class="fas fa-chart-bar"></i> Tribune Trends</div>
+                <div class="client-logo"><i class="fas fa-cube"></i> Pixelobby</div>
+                <div class="client-logo"><i class="fas fa-tshirt"></i> Anzalna's</div>
+            </div>
+            <div class="clients-track" aria-hidden="true">
+                <div class="client-logo"><i class="fas fa-birthday-cake"></i> Amal Desserts</div>
+                <div class="client-logo"><i class="fas fa-chart-bar"></i> Tribune Trends</div>
+                <div class="client-logo"><i class="fas fa-cube"></i> Pixelobby</div>
+                <div class="client-logo"><i class="fas fa-tshirt"></i> Anzalna's</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MILESTONES SECTION -->
+    <section class="milestones" id="milestones">
+        <div class="container text-center">
+            <span class="section-tag" style="color: #fff;">// Milestones reached</span>
+            <h2 class="section-title">EVERY NUMBER TELLS A STORY</h2>
+            <div class="milestones-grid">
+                <div class="milestone-item">
+                    <div class="milestone-value">
+                        <span class="counter" data-target="10000000">0</span><span class="suffix">+</span>
+                    </div>
+                    <p>Ad Spend Managed</p>
+                </div>
+                <div class="milestone-item">
+                    <div class="milestone-value">
+                        <span class="counter" data-target="50">0</span><span class="suffix">+</span>
+                    </div>
+                    <p>Projects Completed</p>
+                </div>
+                <div class="milestone-item">
+                    <div class="milestone-value">
+                        <span class="counter" data-target="100">0</span><span class="suffix">%</span>
+                    </div>
+                    <p>Success Rate</p>
+                </div>
+                <div class="milestone-item">
+                    <div class="milestone-value">
+                        <span class="counter" data-target="100">0</span><span class="suffix">%</span>
+                    </div>
+                    <p>Client Satisfaction</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO SLIDER -->
+    <section class="portfolio section-padding" id="portfolio">
+        <div class="container text-center">
+            <span class="section-tag">// Recent work</span>
+            <h2 class="section-title">PERFORMANCE BUILT ON TRUST</h2>
+        </div>
+        <div class="marquee-container">
+            <div class="marquee-content">
+                <div class="portfolio-item"><img src="http://earnwithaadi.com/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-27-at-7.46.14-PM.jpeg" alt="Portfolio 1" loading="lazy" onerror="this.src='https://via.placeholder.com/600x400/b13942/ffffff?text=Portfolio+1'"></div>
+                <div class="portfolio-item"><img src="http://earnwithaadi.com/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-27-at-7.46.14-PM-1.jpeg" alt="Portfolio 2" loading="lazy" onerror="this.src='https://via.placeholder.com/600x400/333333/ffffff?text=Portfolio+2'"></div>
+                <div class="portfolio-item"><img src="http://earnwithaadi.com/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-27-at-7.46.14-PM-2.jpeg" alt="Portfolio 3" loading="lazy" onerror="this.src='https://via.placeholder.com/600x400/b13942/ffffff?text=Portfolio+3'"></div>
+                <div class="portfolio-item"><img src="http://earnwithaadi.com/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-27-at-7.46.15-PM.jpeg" alt="Portfolio 4" loading="lazy" onerror="this.src='https://via.placeholder.com/600x400/333333/ffffff?text=Portfolio+4'"></div>
+                <div class="portfolio-item"><img src="http://earnwithaadi.com/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-27-at-7.46.15-PM-1.jpeg" alt="Portfolio 5" loading="lazy" onerror="this.src='https://via.placeholder.com/600x400/b13942/ffffff?text=Portfolio+5'"></div>
+                <div class="portfolio-item"><img src="http://earnwithaadi.com/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-27-at-7.46.15-PM-2.jpeg" alt="Portfolio 6" loading="lazy" onerror="this.src='https://via.placeholder.com/600x400/333333/ffffff?text=Portfolio+6'"></div>
+                <div class="portfolio-item"><img src="http://earnwithaadi.com/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-27-at-7.46.15-PM-3.jpeg" alt="Portfolio 7" loading="lazy" onerror="this.src='https://via.placeholder.com/600x400/b13942/ffffff?text=Portfolio+7'"></div>
+                <div class="portfolio-item"><img src="http://earnwithaadi.com/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-27-at-7.46.16-PM.jpeg" alt="Portfolio 8" loading="lazy" onerror="this.src='https://via.placeholder.com/600x400/333333/ffffff?text=Portfolio+8'"></div>
+            </div>
+            <div class="marquee-content" aria-hidden="true">
+                <div class="portfolio-item"><img src="http://earnwithaadi.com/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-27-at-7.46.14-PM.jpeg" alt="Portfolio 1" loading="lazy" onerror="this.src='https://via.placeholder.com/600x400/b13942/ffffff?text=Portfolio+1'"></div>
+                <div class="portfolio-item"><img src="http://earnwithaadi.com/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-27-at-7.46.14-PM-1.jpeg" alt="Portfolio 2" loading="lazy" onerror="this.src='https://via.placeholder.com/600x400/333333/ffffff?text=Portfolio+2'"></div>
+                <div class="portfolio-item"><img src="http://earnwithaadi.com/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-27-at-7.46.14-PM-2.jpeg" alt="Portfolio 3" loading="lazy" onerror="this.src='https://via.placeholder.com/600x400/b13942/ffffff?text=Portfolio+3'"></div>
+                <div class="portfolio-item"><img src="http://earnwithaadi.com/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-27-at-7.46.15-PM.jpeg" alt="Portfolio 4" loading="lazy" onerror="this.src='https://via.placeholder.com/600x400/333333/ffffff?text=Portfolio+4'"></div>
+                <div class="portfolio-item"><img src="http://earnwithaadi.com/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-27-at-7.46.15-PM-1.jpeg" alt="Portfolio 5" loading="lazy" onerror="this.src='https://via.placeholder.com/600x400/b13942/ffffff?text=Portfolio+5'"></div>
+                <div class="portfolio-item"><img src="http://earnwithaadi.com/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-27-at-7.46.15-PM-2.jpeg" alt="Portfolio 6" loading="lazy" onerror="this.src='https://via.placeholder.com/600x400/333333/ffffff?text=Portfolio+6'"></div>
+                <div class="portfolio-item"><img src="http://earnwithaadi.com/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-27-at-7.46.15-PM-3.jpeg" alt="Portfolio 7" loading="lazy" onerror="this.src='https://via.placeholder.com/600x400/b13942/ffffff?text=Portfolio+7'"></div>
+                <div class="portfolio-item"><img src="http://earnwithaadi.com/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-27-at-7.46.16-PM.jpeg" alt="Portfolio 8" loading="lazy" onerror="this.src='https://via.placeholder.com/600x400/333333/ffffff?text=Portfolio+8'"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GOOGLE REVIEWS -->
+    <section class="testimonials section-padding" id="reviews">
+        <div class="container">
+            <div class="google-header">
+                <div class="google-logo">
+                    <span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
+                </div>
+                <div class="google-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p>Based on 4 reviews</p>
+            </div>
+        </div>
+
+        <div class="reviews-marquee">
+            <div class="reviews-track">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar avatar-red">A</div>
+                            <div class="reviewer-details">
+                                <h4>Asma Hussain</h4>
+                                <span>3 months ago</span>
+                            </div>
+                        </div>
+                        <i class="fab fa-google review-google-icon"></i>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-check-circle verified"></i>
+                    </div>
+                    <p class="review-text">"What impressed me most was Kainat's attention to detail. She constantly monitored performance and made improvements that helped us attract..." <span class="read-more">Read more</span></p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar avatar-blue">H</div>
+                            <div class="reviewer-details">
+                                <h4>Huzaifa Nawaz Malik</h4>
+                                <span>3 months ago</span>
+                            </div>
+                        </div>
+                        <i class="fab fa-google review-google-icon"></i>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-check-circle verified"></i>
+                    </div>
+                    <p class="review-text">"Kainat brought a fresh perspective to our marketing strategy. Her ideas and execution helped us generate more engagement and better conversion rates."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar avatar-green">P</div>
+                            <div class="reviewer-details">
+                                <h4>Pixelobby Official</h4>
+                                <span>3 months ago</span>
+                            </div>
+                        </div>
+                        <i class="fab fa-google review-google-icon"></i>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-check-circle verified"></i>
+                    </div>
+                    <p class="review-text">"Kainat didn't just run ads; she helped us understand where we were losing opportunities. Her recommendations improved both our lead quality and..." <span class="read-more">Read more</span></p>
+                </div>
+            </div>
+            <div class="reviews-track" aria-hidden="true">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar avatar-red">A</div>
+                            <div class="reviewer-details">
+                                <h4>Asma Hussain</h4>
+                                <span>3 months ago</span>
+                            </div>
+                        </div>
+                        <i class="fab fa-google review-google-icon"></i>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-check-circle verified"></i>
+                    </div>
+                    <p class="review-text">"What impressed me most was Kainat's attention to detail. She constantly monitored performance and made improvements that helped us attract..." <span class="read-more">Read more</span></p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar avatar-blue">H</div>
+                            <div class="reviewer-details">
+                                <h4>Huzaifa Nawaz Malik</h4>
+                                <span>3 months ago</span>
+                            </div>
+                        </div>
+                        <i class="fab fa-google review-google-icon"></i>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-check-circle verified"></i>
+                    </div>
+                    <p class="review-text">"Kainat brought a fresh perspective to our marketing strategy. Her ideas and execution helped us generate more engagement and better conversion rates."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar avatar-green">P</div>
+                            <div class="reviewer-details">
+                                <h4>Pixelobby Official</h4>
+                                <span>3 months ago</span>
+                            </div>
+                        </div>
+                        <i class="fab fa-google review-google-icon"></i>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-check-circle verified"></i>
+                    </div>
+                    <p class="review-text">"Kainat didn't just run ads; she helped us understand where we were losing opportunities. Her recommendations improved both our lead quality and..." <span class="read-more">Read more</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <span class="section-tag" style="color: #fff;">// Growth Doesn't Happen By Chance</span>
+            <h2 class="section-title">WE'RE ONLY ONE CALL AWAY</h2>
+            <p>Let's discuss how we can scale your business together.</p>
+            <a href="mailto:info@kainatjaved.com" class="btn">Let's Discuss Your Project</a>
+        </div>
+    </section>
+
+    <!-- FAQ / WHY ME SECTION -->
+    <section class="faq section-padding">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-tag">// Why Me</span>
+                <h2 class="section-title">YOUR SUCCESS MATTERS MOST</h2>
+            </div>
+            <div class="faq-list">
+                <details open>
+                    <summary>I Focus on Results That Matter</summary>
+                    <div class="faq-content">I don't just run ads; I focus on the metrics that actually grow your business, like ROAS, conversion rates, and revenue.</div>
+                </details>
+                <details>
+                    <summary>Every Business Gets a Different Strategy</summary>
+                    <div class="faq-content">There is no one-size-fits-all approach. I analyze your specific niche, audience, and goals to create a tailored marketing plan.</div>
+                </details>
+                <details>
+                    <summary>I Treat Your Budget Like My Own</summary>
+                    <div class="faq-content">I ensure that every dollar you spend is optimized for maximum return. No wasted ad spend, just strategic allocation.</div>
+                </details>
+                <details>
+                    <summary>Clear Communication, No Guesswork</summary>
+                    <div class="faq-content">You will receive transparent reporting and regular updates. You'll always know exactly how your campaigns are performing and why.</div>
+                </details>
+                <details>
+                    <summary>More Than Just Running Ads</summary>
+                    <div class="faq-content">I look at the entire funnel, from the ad creative to the landing page and checkout process, to ensure a seamless customer journey.</div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <span class="k">K</span>
+                        <span class="j">J</span>
+                    </div>
+                    <p>Your trusted partner in performance marketing. Let's grow your business with strategies that deliver measurable results.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/profile.php?id=61594487743785" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/kdigital_by_kainat/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@kdigital_by_kainat" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.linkedin.com/in/kainat-javed-946b9a3b0" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>What I Do!</h4>
+                    <ul>
+                        <li><a href="#">Meta Ads</a></li>
+                        <li><a href="#">Google Ads</a></li>
+                        <li><a href="#">TikTok Ads</a></li>
+                        <li><a href="#">Lead Generation</a></li>
+                        <li><a href="#">Social Media Management</a></li>
+                        <li><a href="#">Ad Account Audit</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Menu</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#reviews">Reviews</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Get In Touch</h4>
+                    <div class="footer-contact-item"><i class="fas fa-phone-alt"></i><span>0341 5307998</span></div>
+                    <div class="footer-contact-item"><i class="fas fa-envelope"></i><span>info@kainatjaved.com</span></div>
+                    <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>Islamabad, Pakistan</span></div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright © 2026 | Kainat Javed | All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOAT (bottom right) -->
+    <a href="https://wa.me/923415307998" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- SCROLL TO TOP (bottom left — mirrored with WhatsApp) -->
+    <a href="#" class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // 1. Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // 2. Accordion Logic
+        const details = document.querySelectorAll('details');
+        details.forEach(targetDetail => {
+            targetDetail.addEventListener('click', () => {
+                details.forEach(detail => {
+                    if (detail !== targetDetail) {
+                        detail.removeAttribute('open');
+                    }
+                });
+            });
+        });
+
+        // 3. Animated Number Counter (compact so 10M never overflows)
+        const counters = document.querySelectorAll('.counter');
+        const COUNT_DURATION = 2000;
+
+        const formatCount = (val) => {
+            if (val >= 1000000) return Math.round(val / 1000000) + 'M';
+            if (val >= 1000)    return Math.round(val / 1000) + 'K';
+            return String(val);
+        };
+
+        const animateCounters = () => {
+            counters.forEach(counter => {
+                const target = Number(counter.dataset.target) || 0;
+                const start  = performance.now();
+
+                const step = (now) => {
+                    const p     = Math.min((now - start) / COUNT_DURATION, 1);
+                    const eased = 1 - Math.pow(1 - p, 3);
+                    counter.textContent = formatCount(Math.floor(target * eased));
+                    if (p < 1) requestAnimationFrame(step);
+                    else       counter.textContent = formatCount(target);
+                };
+                requestAnimationFrame(step);
+            });
+        };
+
+        const milestonesSection = document.querySelector('.milestones');
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { rootMargin: '0px 0px -100px 0px' });
+
+        observer.observe(milestonesSection);
+
+        // 4. Scroll to Top Button
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('active');
+            } else {
+                scrollTopBtn.classList.remove('active');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // 5. Duplicate marquee content until each track is ≥1.5× viewport for a seamless loop
+        const fillMarquees = () => {
+            document.querySelectorAll('.marquee-content, .reviews-track, .clients-track').forEach(track => {
+                const oneSet = track.innerHTML;
+                const minWidth = Math.max(window.innerWidth * 1.5, 2400);
+                let copies = 1;
+                while (track.scrollWidth < minWidth && copies < 8) {
+                    track.innerHTML += oneSet;
+                    copies++;
+                }
+                void track.offsetWidth;
+            });
+        };
+
+        if (document.readyState === 'complete') {
+            fillMarquees();
+        } else {
+            window.addEventListener('load', fillMarquees);
+        }
+
+        // Refill on resize if a track becomes too short
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                document.querySelectorAll('.marquee-content, .reviews-track, .clients-track').forEach(track => {
+                    if (track.scrollWidth < window.innerWidth * 1.5) {
+                        fillMarquees();
+                    }
+                });
+            }, 250);
+        });
+    </script>
+</body>
+</html>
